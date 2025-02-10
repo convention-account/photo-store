@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Продажа фото</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        img { width: 300px; margin: 10px; }
+        .buy-button { background: #0070ba; color: white; padding: 10px; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Мои фотографии</h1>
+    
+    <img src="photo1.jpg" alt="Фото 1">
+    <p>Цена: 10€</p>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+        <input type="hidden" name="cmd" value="_xclick">
+        <input type="hidden" name="business" value="andreyme0411@gmail.com">
+        <input type="hidden" name="item_name" value="Фото 1">
+        <input type="hidden" name="amount" value="10.00">
+        <input type="hidden" name="currency_code" value="EUR">
+        <input class="buy-button" type="submit" value="Купить">
+    </form>
+
+    <p>&copy; 2025 Мой фото-магазин</p>
+</body>
+</html>
