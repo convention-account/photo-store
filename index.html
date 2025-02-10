@@ -5,25 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Продажа фото</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; }
-        img { width: 300px; margin: 10px; }
-        .buy-button { background: #0070ba; color: white; padding: 10px; border: none; cursor: pointer; }
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        img {
+            width: 300px;
+            margin: 10px;
+        }
+        .buy-button {
+            background: #0070ba;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+        h1 {
+            font-size: 2rem;
+        }
     </style>
+
+    <!-- Snipcart -->
+    <script type="text/javascript" src="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.js"></script>
+    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.css" />
 </head>
 <body>
     <h1>Мои фотографии</h1>
     
-    <img src="photo1.jpg" alt="Фото 1">
-    <p>Цена: 10€</p>
-    <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-        <input type="hidden" name="cmd" value="_xclick">
-        <input type="hidden" name="business" value="andreyme0411@gmail.com">
-        <input type="hidden" name="item_name" value="Фото 1">
-        <input type="hidden" name="amount" value="10.00">
-        <input type="hidden" name="currency_code" value="EUR">
-        <input class="buy-button" type="submit" value="Купить">
-    </form>
+    <!-- Фото 1 -->
+    <div class="product">
+        <img src="photo1.jpg" alt="Фото 1">
+        <p>Цена: 10€</p>
+        <button class="buy-button" data-item-id="photo1" data-item-name="Фото 1" data-item-price="10.00" data-item-url="https://your-site-link.com/photo1.jpg" data-item-description="Фото 1">Добавить в корзину</button>
+    </div>
+    
+    <!-- Snipcart корзина -->
+    <div hidden id="snipcart"></div>
 
     <p>&copy; 2025 Мой фото-магазин</p>
+
+    <!-- Добавление Snipcart на сайт -->
+    <script>
+        window.snipcart = window.snipcart || {};
+        window.snipcart.api = window.snipcart.api || {};
+        window.snipcart.api.init({
+            publicApiKey: 'NjQ5NzIzZTMtZWUwNi00ZmNmLWFlMmItZjRjNTY3YmIyNzY2NjM4NzQ4MTA3Nzg2MDkzMTc1' // Укажи свой API ключ Snipcart
+        });
+    </script>
+
+    <!-- Обработка заказов через email -->
+    <form action="https://formspree.io/f/mwkajvwb" method="POST" style="display: none;">
+        <input type="text" name="email" placeholder="Ваш email">
+        <input type="submit" value="Отправить">
+    </form>
 </body>
 </html>
